@@ -8,13 +8,14 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  password_digest :string(255)
+#  remember_token  :string(255)
 #
 
 require 'spec_helper'
 
 describe User do
-  before { @user = User.new(name: "dd, 
-                            email: "gellar.p@gmail.com",
+  before { @user = User.new(name: "vijay", 
+                            email: "vijay.meena@gmail.com",
                             password: "foobar",
                             password_confirmation: "foobar") }
 
@@ -27,6 +28,12 @@ describe User do
   it { should respond_to(:password_confirmation) }
   it { should be_valid }
   it { should respond_to(:authenticate) }
+  it { should respond_to(:remember_token) }
+
+  describe "remember token" do
+    before { @user.save }
+    its(:remember_token) { should_not be_blank }
+  end
 
   describe "when name is not present" do
     before { @user.name = "" }
@@ -106,6 +113,4 @@ describe User do
       it { should_not be_valid }
     end
   end
-  
-
 end
