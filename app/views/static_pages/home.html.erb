@@ -1,27 +1,9 @@
 <div class="span4">
   <div class="well">    
-    <%= form_tag do %>    
-      <fieldset>
-        <legend>Login</legend>        
-          <%= text_field_tag :email, params[:email], placeholder: "Email", class: "input-block-level" %>
-          <%= password_field_tag :password, params[:password], placeholder: "Password", class: "input-block-level"%>
-          <label class="checkbox">
-            <%= check_box_tag :remember, params[:remember] %>
-            <strong class="muted">Remember Me</strong>
-          </label>
-          <div class="pull-right">
-            <%= submit_tag "Login", class: "btn btn-primary" %>
-            <%= link_to "Register", signup_path, class: "btn btn-info", 
-              remote: true, data: { toggle: "modal", target: "#register" } 
-            %>
-          </div>
-      </fieldset>
-    <% end %>
+    <%= render 'sessions/login_form' %>
   </div>  
 </div>
 <div class="span8">
   
 </div>
 <%= render partial: "signup" %>
-
-

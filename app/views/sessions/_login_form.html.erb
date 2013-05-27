@@ -1,0 +1,19 @@
+<%= form_tag( sessions_path, :html => { method: :post }) do %>    
+  <fieldset>
+    <legend>Login</legend>        
+      <div class="control">
+        <%= text_field_tag :email, params[:email], placeholder: "Email", class: "input-large" %>
+      </div>
+      <div class="control">
+        <%= password_field_tag :password, params[:password], placeholder: "Password", class: "input-large" %>
+      </div>
+      <label class="checkbox">
+        <%= check_box_tag :remember, params[:remember] %>
+        <strong class="muted">Remember Me</strong>
+      </label>
+      <div class="form-actions">
+        <%= submit_tag "Login", class: "btn btn-primary" %>
+        <%= link_to "Register", signup_path, class: "btn btn-info" %>
+      </div>
+  </fieldset>
+<% end %>

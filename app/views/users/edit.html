@@ -1,0 +1,11 @@
+<% provide(:title, @user.name) %>
+<div class="span12">
+  <div id="page-canvas">
+    <fieldset>
+      <legend>Update your profile</legend>
+      <%= render 'edit_user_form'  %>
+      <%= gravatar_for @user %>
+      <%= link_to "change", "http://gravatar.com/emails" %>
+    </fieldset>
+  </div>
+</div>
