@@ -1,6 +1,7 @@
 SampleApp::Application.configure do
- 
- # The test environment is used exclusively to run your application's
+  # Settings specified here will take precedence over those in config/application.rb
+
+  # The test environment is used exclusively to run your application's
   # test suite. You never need to work with it otherwise. Remember that
   # your test database is "scratch space" for the test suite and is wiped
   # and recreated between test runs. Don't rely on the data there!
@@ -34,4 +35,9 @@ SampleApp::Application.configure do
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
 
+  # Speed up tests by lowering BCrypt's cost function.
+  require 'bcrypt'
+  silence_warnings do
+    BCrypt::Engine::DEFAULT_COST = BCrypt::Engine::MIN_COST
+  end
 end
